@@ -525,14 +525,31 @@
         More Games
     </a>
 
-                    <div id="subscriber-perks-box" style="max-width: 800px; margin: 20px auto; padding: 20px; background: #111; border: 2px dashed #444; border-radius: 8px; font-family: sans-serif; text-align: center;">
+<!-- THE INTEGRATED PERKS & FREE SUBSCRIBER NEWSLETTER SYSTEM -->
+<div id="subscriber-perks-box" style="max-width: 800px; margin: 20px auto; padding: 20px; background: #111; border: 2px dashed #444; border-radius: 8px; font-family: sans-serif; text-align: center;">
     
+    <!-- 🔒 LOCKED STATE: SHOW NEWSLETTER FORM -->
     <div id="perks-locked" style="display: block; padding: 20px;">
         <span style="font-size: 2rem;">🔒</span>
-        <h3 style="color: #ffcc00; margin: 10px 0 5px 0;">Subscriber Exclusive Content Locked</h3>
-        <p style="color: #aaa; font-size: 0.9rem; margin: 0;">Hit the yellow **SUBSCRIBE** button above to unlock premium local rewards!</p>
+        <h3 style="color: #ffcc00; margin: 10px 0 5px 0;">Subscriber Exclusive Perks Locked</h3>
+        <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 15px;">Subscribe to our FREE newsletter below to unlock premium local rewards and full site access!</p>
+        
+        <!-- Connected directly to your Static Forms endpoint -->
+        <form id="newsletter-form" action="https://api.staticforms.dev/submit" method="POST" onsubmit="handleSubscription(event)" style="margin: 15px 0;">
+            
+            <!-- Your Personal Access Key -->
+            <input type="hidden" name="accessKey" value="sf_78d0c67e834f597ef63d3b1b">
+            <input type="hidden" name="subject" value="New Subscriber for David Artsy Newsletter! 🎉">
+
+            <input type="email" id="subscriber-email" name="email" placeholder="Enter your email address" required style="padding: 10px; width: 85%; max-width: 280px; border-radius: 4px; border: 1px solid #333; background: #000; color: #fff; margin-bottom: 12px; font-size: 0.9rem; font-family: sans-serif; text-align: center;">
+            <br>
+            <button type="submit" style="background: #ffcc00; color: #000; border: none; padding: 10px 24px; font-size: 1rem; font-weight: bold; border-radius: 20px; cursor: pointer; transition: 0.2s; text-transform: uppercase;">
+                Subscribe For Free
+            </button>
+        </form>
     </div>
 
+    <!-- 🎉 UNLOCKED STATE: SHOW PREMIUM REWARDS -->
     <div id="perks-unlocked" style="display: none;">
         <h2 style="color: #ffcc00; margin-top: 0; font-size: 1.4rem;">🎉 THANK YOU FOR SUBSCRIBING! 🎉</h2>
         <p style="color: #eee; font-size: 0.95rem; margin-bottom: 20px;">You've unlocked exclusive access to David Artsy's premium subscriber services:</p>
@@ -557,9 +574,12 @@
 
         <div style="margin-top: 25px;">
             <p style="color: #aaa; font-size: 0.85rem; margin-bottom: 8px;">To claim your rewards or book a service, tap below to contact me directly:</p>
-            <a href="https://wa.me/18683917461" target="_blank" style="display: inline-block; background: #ffcc00; color: #000; text-decoration: none; font-weight: bold; padding: 12px 24px; border-radius: 4px; font-size: 0.95rem;">Contact David Artsy to Claim</a>
+            <a href="https://wa.me/18683917461" target="_blank" style="display: inline-block; background: #ffcc00; color: #000; text-decoration: none; font-weight: bold; padding: 12px 24px; border-radius: 4px; font-size: 0.95rem; text-transform: uppercase; margin-bottom: 10px;">Contact David Artsy to Claim</a>
+            <br>
+            <span onclick="handleUnsubscribe()" style="color: #ff3333; font-size: 0.8rem; cursor: pointer; text-decoration: underline; font-family: sans-serif;">Unsubscribe from Newsletter</span>
         </div>
     </div>
+</div>
                     </div>
 
                 </div>
@@ -1365,6 +1385,61 @@ Castastics is a world of large casts of unique characters and make all dreams co
         
         window.scrollTo({top: 0, behavior: 'smooth'});
     }
+
+    let userIsSubscribed = localStorage.getItem('castastics_subbed') === 'true';
+
+document.addEventListener("DOMContentLoaded", function() {
+    checkAccessRequirements();
+});
+
+function checkAccessRequirements() {
+    const lockedDiv = document.getElementById('perks-locked');
+    const unlockedDiv = document.getElementById('perks-unlocked');
+    
+    if (userIsSubscribed) {
+        if (lockedDiv) lockedDiv.style.display = 'none';
+        if (unlockedDiv) unlockedDiv.style.display = 'block';
+    } else {
+        if (lockedDiv) lockedDiv.style.display = 'block';
+        if (unlockedDiv) unlockedDiv.style.display = 'none';
+    }
+}
+
+function handleSubscription(event) {
+    event.preventDefault(); 
+    
+    const form = event.target;
+    const emailVal = document.getElementById('subscriber-email').value;
+    
+    if (emailVal) {
+        localStorage.setItem('castastics_subbed', 'true');
+        userIsSubscribed = true;
+        checkAccessRequirements();
+        
+        fetch(form.action, {
+            method: form.method,
+            body: new FormData(form)
+        });
+
+        if (typeof showToast === "function") {
+            showToast("Welcome to the newsletter! Premium perks unlocked! 🎉");
+        } else {
+            alert("Welcome to the newsletter! Premium perks unlocked! 🎉");
+        }
+    }
+}
+
+function handleUnsubscribe() {
+    localStorage.removeItem('castastics_subbed');
+    userIsSubscribed = false;
+    checkAccessRequirements();
+    
+    if (typeof showToast === "function") {
+        showToast("You have unsubscribed. Perks are now locked.");
+    } else {
+        alert("You have unsubscribed. Perks are now locked.");
+    }
+}
 </script>
     <div id="custom-toast" style="display: none; position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: #ffcc00; color: #000; padding: 12px 24px; border-radius: 25px; font-family: sans-serif; font-weight: bold; font-size: 0.95rem; box-shadow: 0px 4px 15px rgba(0,0,0,0.5); z-index: 99999; text-align: center; min-width: 250px;">
     Thank you for commenting!
