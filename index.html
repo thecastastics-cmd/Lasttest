@@ -5,44 +5,65 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body { font-family: Arial; background: #111; color: white; text-align: center; }
-    h1 { color: #ffcc00; }
-    .shop-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 20px; }
-    .toy { background: #222; border-radius: 15px; padding: 15px; }
+    * { box-sizing: border-box; }
+    body { 
+      font-family: Arial; 
+      background: #111; 
+      color: white; 
+      text-align: center; 
+      margin: 0; 
+      padding: 0;
+    }
+    .header { padding: 25px 15px 5px; }
+    .header h1 { color: #ffcc00; margin: 0; font-size: 28px; }
+    .header p { color: #ccc; }
+
+    /* THE FIX - 1 toy per row, centered, full width */
+    .shop { 
+      max-width: 650px; 
+      margin: 0 auto; 
+      padding: 10px; 
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .toy { 
+      background: transparent; 
+      border-radius: 0; 
+      padding: 0; 
+      overflow: hidden;
+      width: 100%;
+    }
+    /* Make the Payhip box fit the phone */
+    .payhip-embed-page { width: 100% !important; }
   </style>
 </head>
 <body>
 
-<h1>⭐ Castastics Toys ⭐</h1>
-<p>Grab some new plushies and action figures!! Shop all toys right here.</p>
+<div class="header">
+  <h1>⭐ Castastics Toys ⭐</h1>
+  <p>Grab some new plushies and action figures!! Shop all toys right here.</p>
+</div>
 
-<div class="shop-grid">
+<div class="shop">
 
-  <!-- TOY 1 - YOU ALREADY GOT THIS ONE -->
+  <!-- WAVE #1 - $252 -->
   <div class="toy">
     <div class="payhip-embed-page" data-key="YhwgG"></div>
   </div>
 
-  <!-- TOY 2 - Go get its Embed Page code in Payhip and paste it here -->
-
-    <!-- Example: <div class="payhip-embed-page" data-key="NEXT-KEY-HERE"></div> -->
-<div class="toy">
-  <div class="payhip-embed-page" data-key="IdPwF"></div>
+  <!-- WAVE #2 - $750 -->
+  <div class="toy">
+    <div class="payhip-embed-page" data-key="IdPwF"></div>
   </div>
 
-  <!-- TOY 3 -->
-  
-    <!-- <div class="payhip-embed-page" data-key="NEXT-KEY-HERE"></div> -->
-    <div class="toy">
-  <div class="payhip-embed-page" data-key="rW0nV"></div>
+  <!-- WAVE #3 - $589.99 -->
+  <div class="toy">
+    <div class="payhip-embed-page" data-key="rW0nV"></div>
   </div>
-
-  <!-- Keep adding toys the same way -->
 
 </div>
 
-<!-- Payhip script - ONLY ONCE at bottom -->
 <script type="text/javascript" src="https://payhip.com/embed-page.js?v=24u68985"></script>
-
 </body>
 </html>
