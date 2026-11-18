@@ -126,15 +126,14 @@
   function closeModal(id){document.getElementById(id).classList.remove('open');document.body.style.overflow=''}
 </script>
   <script>
-// PASTE THIS RIGHT ABOVE THE PAYHIP SCRIPT LINE - DON'T TOUCH ANYTHING ELSE
-// 1. Save all popup keys, then empty popups so they don't load on refresh
+// REPLACE THE OLD IFRAME BLOCK WITH THIS ONE - SAME SPOT, ABOVE PAYHIP SCRIPT
+// 1. Save popup keys, empty popups so they don't load on refresh
 document.querySelectorAll('.modal').forEach(function(modal){
   var embed = modal.querySelector('.payhip-embed-page');
   if(embed){
     modal.dataset.key = embed.getAttribute('data-key');
     embed.remove();
   }
-  // Make a spot for the popup content
   if(!modal.querySelector('.modal-content')){
     var box = modal.querySelector('.modal-box');
     var div = document.createElement('div');
@@ -144,14 +143,22 @@ document.querySelectorAll('.modal').forEach(function(modal){
   }
 });
 
-// 2. Override openModal - load ONLY the one you clicked, in an iframe
+// 2. On click, inject the CLEAN Payhip embed (not the full page), then re-run Payhip
 window.openModal = function(id){
   var modal = document.getElementById(id);
   var content = modal.querySelector('.modal-content');
   var key = modal.dataset.key;
   if(key && content.dataset.loadedKey !== key){
     content.dataset.loadedKey = key;
-    content.innerHTML = '<iframe src="https://payhip.com/b/' + key + '" style="width:100%;height:600px;border:0;background:white"></iframe>';
+    content.innerHTML = '';
+    var div = document.createElement('div');
+    div.className = 'payhip-embed-page';
+    div.setAttribute('data-key', key);
+    content.appendChild(div);
+    // Force Payhip to scan the page again for this new embed
+    var s = document.createElement('script');
+    s.src = 'https://payhip.com/embed-page.js?v=24u68985';
+    document.body.appendChild(s);
   }
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
