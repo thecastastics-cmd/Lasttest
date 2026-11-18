@@ -125,6 +125,42 @@
   function openModal(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden'}
   function closeModal(id){document.getElementById(id).classList.remove('open');document.body.style.overflow=''}
 </script>
+  <script>
+// PASTE THIS RIGHT ABOVE THE PAYHIP SCRIPT LINE - DON'T TOUCH ANYTHING ELSE
+// 1. Save all popup keys, then empty popups so they don't load on refresh
+document.querySelectorAll('.modal').forEach(function(modal){
+  var embed = modal.querySelector('.payhip-embed-page');
+  if(embed){
+    modal.dataset.key = embed.getAttribute('data-key');
+    embed.remove();
+  }
+  // Make a spot for the popup content
+  if(!modal.querySelector('.modal-content')){
+    var box = modal.querySelector('.modal-box');
+    var div = document.createElement('div');
+    div.className = 'modal-content';
+    div.innerHTML = '<p style="padding:20px;color:#888">Loading... ⭐</p>';
+    box.appendChild(div);
+  }
+});
+
+// 2. Override openModal - load ONLY the one you clicked, in an iframe
+window.openModal = function(id){
+  var modal = document.getElementById(id);
+  var content = modal.querySelector('.modal-content');
+  var key = modal.dataset.key;
+  if(key && content.dataset.loadedKey !== key){
+    content.dataset.loadedKey = key;
+    content.innerHTML = '<iframe src="https://payhip.com/b/' + key + '" style="width:100%;height:600px;border:0;background:white"></iframe>';
+  }
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+};
+window.closeModal = function(id){
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+};
+  </script>
 <script type="text/javascript" src="https://payhip.com/embed-page.js?v=24u68985"></script>
 </body>
                                                                                                                            </html>
