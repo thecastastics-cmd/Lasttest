@@ -1,69 +1,96 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Castastics Toys - Shop Plushies & Action Figures</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <title>Castastics Toys - Official Plushies & Action Figures</title>
+  <meta name="description" content="Shop official Castastics Toys by David Artsy. Handmade plushies, action figures, Wave #1, #2, #3, Villains, Heroes and more.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    * { box-sizing: border-box; }
-    body { 
-      font-family: Arial; 
-      background: #111; 
-      color: white; 
-      text-align: center; 
-      margin: 0; 
-      padding: 0;
-    }
-    .header { padding: 25px 15px 5px; }
-    .header h1 { color: #ffcc00; margin: 0; font-size: 28px; }
-    .header p { color: #ccc; }
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <meta property="og:title" content="Castastics Toys - Official Shop">
+  <meta property="og:description" content="Grab some new plushies!! Official Castastics toys by David Artsy.">
+  <meta property="og:image" content="cover.jpg">
 
-    /* THE FIX - 1 toy per row, centered, full width */
-    .shop { 
-      max-width: 650px; 
-      margin: 0 auto; 
-      padding: 10px; 
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .toy { 
-      background: transparent; 
-      border-radius: 0; 
-      padding: 0; 
-      overflow: hidden;
-      width: 100%;
-    }
-    /* Make the Payhip box fit the phone */
-    .payhip-embed-page { width: 100% !important; }
+  <style>
+    *{box-sizing:border-box} body{margin:0;background:#2b4bff;color:white;font-family:Arial;text-align:center}
+    .topbar{background:#4a0000;padding:10px;font-size:14px}
+    .socials{display:flex;justify-content:center;gap:12px;margin:10px 0}
+    .socials a{background:white;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;text-decoration:none}
+    .video-wrap{max-width:900px;margin:0 auto;padding:10px} .video-wrap h2{color:#ffea00;text-align:left;font-size:18px}
+    .video{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px} .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+    .tabs{margin:20px 0 10px} .tabs b{color:#ffea00;border-bottom:2px solid #ffea00;padding-bottom:3px} .tabs span{opacity:.7;margin-left:15px}
+
+    /* GRID LIKE YOUR SCREENSHOT */
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:12px;max-width:1000px;margin:0 auto}
+    @media(min-width:700px){.grid{grid-template-columns:repeat(3,1fr)}}
+    .card{background:white;border-radius:10px;overflow:hidden;color:black;text-align:left}
+    .card h3{color:#000;font-size:14px;margin:0;padding:10px 10px 0}
+    .card p{margin:4px 10px 10px;font-weight:bold}
+
+    /* THE TRICK - Payhip embed CROPPED to thumbnail, no pics needed */
+    .preview{height:260px;overflow:hidden;position:relative;cursor:pointer}
+    .preview .payhip-embed-page{pointer-events:none} /* so click opens popup, not Payhip yet */
+    .preview:after{content:"Tap to View →";position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent, rgba(0,0,0,.8));color:white;padding:25px 10px 10px;font-weight:bold;text-align:center}
+
+    /* POPUP - SAME embed, full size, all content */
+    .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.9);z-index:999;overflow-y:auto;padding:12px}
+    .modal.open{display:block}
+    .modal-box{max-width:650px;margin:10px auto;background:white;border-radius:12px;overflow:hidden}
+    .modal-top{background:#111;color:white;padding:12px;display:flex;justify-content:space-between}
+    .modal-top button{background:#ffea00;border:none;padding:8px 14px;border-radius:6px;font-weight:bold}
   </style>
 </head>
 <body>
 
-<div class="header">
-  <h1>⭐ Castastics Toys ⭐</h1>
-  <p>Grab some new plushies and action figures!! Shop all toys right here.</p>
+<div class="topbar">Grab some new plushies!! ⭐ Castastics Toys ⭐</div>
+<h1>Castastics Toys</h1>
+<p>Official merch by David Artsy | Ages 8+</p>
+<div class="socials">
+  <a href="https://instagram.com/castastics">📸</a>
+  <a href="https://youtube.com/@castastics">▶️</a>
+  <a href="https://tiktok.com/@castastics">🎵</a>
 </div>
 
-<div class="shop">
+<div class="video-wrap">
+  <h2>The Castastics Movie Official Trailer</h2>
+  <div class="video"><iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe></div>
+</div>
 
-  <!-- WAVE #1 - $252 -->
-  <div class="toy">
-    <div class="payhip-embed-page" data-key="YhwgG"></div>
+<div class="tabs"><b>TOYS</b><span>APPARELS</span></div>
+
+<!-- NO PICS HERE - JUST THE PAYHIP EMBED CROPPED -->
+<div class="grid">
+
+  <div class="card">
+    <div class="preview" onclick="openModal('m1')">
+      <div class="payhip-embed-page" data-key="YhwgG"></div>
+    </div>
+    <h3>Castastics Toys Wave #1</h3><p>$252.00</p>
   </div>
 
-  <!-- WAVE #2 - $750 -->
-  <div class="toy">
-    <div class="payhip-embed-page" data-key="IdPwF"></div>
+  <div class="card">
+    <div class="preview" onclick="openModal('m2')">
+      <div class="payhip-embed-page" data-key="IdPwF"></div>
+    </div>
+    <h3>Castastics Toys Wave #2</h3><p>$750.00</p>
   </div>
 
-  <!-- WAVE #3 - $589.99 -->
-  <div class="toy">
-    <div class="payhip-embed-page" data-key="rW0nV"></div>
+  <div class="card">
+    <div class="preview" onclick="openModal('m3')">
+      <div class="payhip-embed-page" data-key="rW0nV"></div>
+    </div>
+    <h3>Castastics Toys Wave #3</h3><p>$589.99</p>
   </div>
 
 </div>
 
+<!-- POPUPS - SAME KEYS AGAIN, FULL CONTENT -->
+<div id="m1" class="modal" onclick="if(event.target==this) closeModal('m1')"><div class="modal-box"><div class="modal-top"><span>Wave #1</span><button onclick="closeModal('m1')">✕ Close</button></div><div class="payhip-embed-page" data-key="YhwgG"></div></div></div>
+<div id="m2" class="modal" onclick="if(event.target==this) closeModal('m2')"><div class="modal-box"><div class="modal-top"><span>Wave #2</span><button onclick="closeModal('m2')">✕ Close</button></div><div class="payhip-embed-page" data-key="IdPwF"></div></div></div>
+<div id="m3" class="modal" onclick="if(event.target==this) closeModal('m3')"><div class="modal-box"><div class="modal-top"><span>Wave #3</span><button onclick="closeModal('m3')">✕ Close</button></div><div class="payhip-embed-page" data-key="rW0nV"></div></div></div>
+
+<script>
+  function openModal(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden'}
+  function closeModal(id){document.getElementById(id).classList.remove('open');document.body.style.overflow=''}
+</script>
 <script type="text/javascript" src="https://payhip.com/embed-page.js?v=24u68985"></script>
 </body>
 </html>
