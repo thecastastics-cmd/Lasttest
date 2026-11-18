@@ -33,6 +33,7 @@
     .modal-box{max-width:650px;margin:10px auto;background:white;border-radius:12px;overflow:hidden}
     .modal-top{background:#111;color:white;padding:12px;display:flex;justify-content:space-between}
     .modal-top button{background:#ffea00;border:none;padding:8px 14px;border-radius:6px;font-weight:bold}
+    .modal-frame{width:100%;height:600px;border:0;background:white}
   </style>
 </head>
 <body>
@@ -59,56 +60,56 @@
   <button id="btn-apparel" onclick="showTab('apparel')">APPARELS (3)</button>
 </div>
 
-<!-- TOYS - NOTE: data-lazy-key instead of data-key, loads only when you scroll to it -->
+<!-- THUMBS - SAME AS BEFORE, LAZY LOAD ON SCROLL, THESE WORK -->
 <div id="tab-toys" class="grid">
-  <div class="card"><div class="preview" onclick="openModal('m1')"><div class="lazy-embed" data-lazy-key="YhwgG"><div class="loading">Loading... ⭐</div></div></div><h3>Castastics Toys Wave #1</h3><p>$252.00</p></div>
-  <div class="card"><div class="preview" onclick="openModal('m2')"><div class="lazy-embed" data-lazy-key="IdPwF"><div class="loading">Loading... ⭐</div></div></div><h3>Castastics Toys Wave #2</h3><p>$750.00</p></div>
-  <div class="card"><div class="preview" onclick="openModal('m3')"><div class="lazy-embed" data-lazy-key="rW0nV"><div class="loading">Loading... ⭐</div></div></div><h3>Castastics Toys Wave #3</h3><p>$589.99</p></div>
-  <div class="card"><div class="preview" onclick="openModal('m4')"><div class="lazy-embed" data-lazy-key="2jiIf"><div class="loading">Loading... ⭐</div></div></div><h3>Toy #4 - EDIT NAME</h3><p>EDIT PRICE</p></div>
-  <div class="card"><div class="preview" onclick="openModal('m5')"><div class="lazy-embed" data-lazy-key="ut8wH"><div class="loading">Loading... ⭐</div></div></div><h3>Toy #5 - EDIT NAME</h3><p>EDIT PRICE</p></div>
-  <div class="card"><div class="preview" onclick="openModal('m6')"><div class="lazy-embed" data-lazy-key="b4ulk"><div class="loading">Loading... ⭐</div></div></div><h3>Toy #6 - EDIT NAME</h3><p>EDIT PRICE</p></div>
-  <div class="card"><div class="preview" onclick="openModal('m7')"><div class="lazy-embed" data-lazy-key="r2Ugm"><div class="loading">Loading... ⭐</div></div></div><h3>Toy #7 - EDIT NAME</h3><p>EDIT PRICE</p></div>
-  <div class="card"><div class="preview" onclick="openModal('m8')"><div class="lazy-embed" data-lazy-key="1kz5C"><div class="loading">Loading... ⭐</div></div></div><h3>Toy #8 - EDIT NAME</h3><p>EDIT PRICE</p></div>
-  <div class="card"><div class="preview" onclick="openModal('m9')"><div class="lazy-embed" data-lazy-key="qFHSz"><div class="loading">Loading... ⭐</div></div></div><h3>Toy #9 - EDIT NAME</h3><p>EDIT PRICE</p></div>
-  <div class="card"><div class="preview" onclick="openModal('m10')"><div class="lazy-embed" data-lazy-key="tbz0I"><div class="loading">Loading... ⭐</div></div></div><h3>Toy #10 - EDIT NAME</h3><p>EDIT PRICE</p></div>
-  <div class="card"><div class="preview" onclick="openModal('m11')"><div class="lazy-embed" data-lazy-key="Wa4nj"><div class="loading">Loading... ⭐</div></div></div><h3>Toy #11 - EDIT NAME</h3><p>EDIT PRICE</p></div>
-  <div class="card"><div class="preview" onclick="openModal('m12')"><div class="lazy-embed" data-lazy-key="zDFnP"><div class="loading">Loading... ⭐</div></div></div><h3>Toy #12 - EDIT NAME</h3><p>EDIT PRICE</p></div>
-  <div class="card"><div class="preview" onclick="openModal('m13')"><div class="lazy-embed" data-lazy-key="xYyRG"><div class="loading">Loading... ⭐</div></div></div><h3>Toy #13 - EDIT NAME</h3><p>EDIT PRICE</p></div>
-  <div class="card"><div class="preview" onclick="openModal('m14')"><div class="lazy-embed" data-lazy-key="41GAP"><div class="loading">Loading... ⭐</div></div></div><h3>Toy #14 - EDIT NAME</h3><p>EDIT PRICE</p></div>
-  <div class="card"><div class="preview" onclick="openModal('m15')"><div class="lazy-embed" data-lazy-key="p6z4x"><div class="loading">Loading... ⭐</div></div></div><h3>Toy #15 - EDIT NAME</h3><p>EDIT PRICE</p></div>
-  <div class="card"><div class="preview" onclick="openModal('m16')"><div class="lazy-embed" data-lazy-key="eDGQb"><div class="loading">Loading... ⭐</div></div></div><h3>Toy #16 - EDIT NAME</h3><p>EDIT PRICE</p></div>
-  <div class="card"><div class="preview" onclick="openModal('m17')"><div class="lazy-embed" data-lazy-key="cymq9"><div class="loading">Loading... ⭐</div></div></div><h3>Toy #17 - EDIT NAME</h3><p>EDIT PRICE</p></div>
-  <div class="card"><div class="preview" onclick="openModal('m18')"><div class="lazy-embed" data-lazy-key="ZVpv2"><div class="loading">Loading... ⭐</div></div></div><h3>Toy #18 - EDIT NAME</h3><p>EDIT PRICE</p></div>
+  <div class="card"><div class="preview" onclick="openModal('m1','YhwgG')"><div class="lazy-embed" data-lazy-key="YhwgG"><div class="loading">Loading... ⭐</div></div></div><h3>Castastics Toys Wave #1</h3><p>$252.00</p></div>
+  <div class="card"><div class="preview" onclick="openModal('m2','IdPwF')"><div class="lazy-embed" data-lazy-key="IdPwF"><div class="loading">Loading... ⭐</div></div></div><h3>Castastics Toys Wave #2</h3><p>$750.00</p></div>
+  <div class="card"><div class="preview" onclick="openModal('m3','rW0nV')"><div class="lazy-embed" data-lazy-key="rW0nV"><div class="loading">Loading... ⭐</div></div></div><h3>Castastics Toys Wave #3</h3><p>$589.99</p></div>
+  <div class="card"><div class="preview" onclick="openModal('m4','2jiIf')"><div class="lazy-embed" data-lazy-key="2jiIf"><div class="loading">Loading... ⭐</div></div></div><h3>Toy #4 - EDIT NAME</h3><p>EDIT PRICE</p></div>
+  <div class="card"><div class="preview" onclick="openModal('m5','ut8wH')"><div class="lazy-embed" data-lazy-key="ut8wH"><div class="loading">Loading... ⭐</div></div></div><h3>Toy #5 - EDIT NAME</h3><p>EDIT PRICE</p></div>
+  <div class="card"><div class="preview" onclick="openModal('m6','b4ulk')"><div class="lazy-embed" data-lazy-key="b4ulk"><div class="loading">Loading... ⭐</div></div></div><h3>Toy #6 - EDIT NAME</h3><p>EDIT PRICE</p></div>
+  <div class="card"><div class="preview" onclick="openModal('m7','r2Ugm')"><div class="lazy-embed" data-lazy-key="r2Ugm"><div class="loading">Loading... ⭐</div></div></div><h3>Toy #7 - EDIT NAME</h3><p>EDIT PRICE</p></div>
+  <div class="card"><div class="preview" onclick="openModal('m8','1kz5C')"><div class="lazy-embed" data-lazy-key="1kz5C"><div class="loading">Loading... ⭐</div></div></div><h3>Toy #8 - EDIT NAME</h3><p>EDIT PRICE</p></div>
+  <div class="card"><div class="preview" onclick="openModal('m9','qFHSz')"><div class="lazy-embed" data-lazy-key="qFHSz"><div class="loading">Loading... ⭐</div></div></div><h3>Toy #9 - EDIT NAME</h3><p>EDIT PRICE</p></div>
+  <div class="card"><div class="preview" onclick="openModal('m10','tbz0I')"><div class="lazy-embed" data-lazy-key="tbz0I"><div class="loading">Loading... ⭐</div></div></div><h3>Toy #10 - EDIT NAME</h3><p>EDIT PRICE</p></div>
+  <div class="card"><div class="preview" onclick="openModal('m11','Wa4nj')"><div class="lazy-embed" data-lazy-key="Wa4nj"><div class="loading">Loading... ⭐</div></div></div><h3>Toy #11 - EDIT NAME</h3><p>EDIT PRICE</p></div>
+  <div class="card"><div class="preview" onclick="openModal('m12','zDFnP')"><div class="lazy-embed" data-lazy-key="zDFnP"><div class="loading">Loading... ⭐</div></div></div><h3>Toy #12 - EDIT NAME</h3><p>EDIT PRICE</p></div>
+  <div class="card"><div class="preview" onclick="openModal('m13','xYyRG')"><div class="lazy-embed" data-lazy-key="xYyRG"><div class="loading">Loading... ⭐</div></div></div><h3>Toy #13 - EDIT NAME</h3><p>EDIT PRICE</p></div>
+  <div class="card"><div class="preview" onclick="openModal('m14','41GAP')"><div class="lazy-embed" data-lazy-key="41GAP"><div class="loading">Loading... ⭐</div></div></div><h3>Toy #14 - EDIT NAME</h3><p>EDIT PRICE</p></div>
+  <div class="card"><div class="preview" onclick="openModal('m15','p6z4x')"><div class="lazy-embed" data-lazy-key="p6z4x"><div class="loading">Loading... ⭐</div></div></div><h3>Toy #15 - EDIT NAME</h3><p>EDIT PRICE</p></div>
+  <div class="card"><div class="preview" onclick="openModal('m16','eDGQb')"><div class="lazy-embed" data-lazy-key="eDGQb"><div class="loading">Loading... ⭐</div></div></div><h3>Toy #16 - EDIT NAME</h3><p>EDIT PRICE</p></div>
+  <div class="card"><div class="preview" onclick="openModal('m17','cymq9')"><div class="lazy-embed" data-lazy-key="cymq9"><div class="loading">Loading... ⭐</div></div></div><h3>Toy #17 - EDIT NAME</h3><p>EDIT PRICE</p></div>
+  <div class="card"><div class="preview" onclick="openModal('m18','ZVpv2')"><div class="lazy-embed" data-lazy-key="ZVpv2"><div class="loading">Loading... ⭐</div></div></div><h3>Toy #18 - EDIT NAME</h3><p>EDIT PRICE</p></div>
 </div>
 
 <div id="tab-apparel" class="grid" style="display:none">
-  <div class="card"><div class="preview" onclick="openModal('a1')"><div class="lazy-embed" data-lazy-key="0sK71"><div class="loading">Loading... ⭐</div></div></div><h3>Apparel #1 - EDIT NAME</h3><p>EDIT PRICE</p></div>
-  <div class="card"><div class="preview" onclick="openModal('a2')"><div class="lazy-embed" data-lazy-key="9hYzw"><div class="loading">Loading... ⭐</div></div></div><h3>Apparel #2 - EDIT NAME</h3><p>EDIT PRICE</p></div>
-  <div class="card"><div class="preview" onclick="openModal('a3')"><div class="lazy-embed" data-lazy-key="m1oLZ"><div class="loading">Loading... ⭐</div></div></div><h3>Apparel #3 - EDIT NAME</h3><p>EDIT PRICE</p></div>
+  <div class="card"><div class="preview" onclick="openModal('a1','0sK71')"><div class="lazy-embed" data-lazy-key="0sK71"><div class="loading">Loading... ⭐</div></div></div><h3>Apparel #1 - EDIT NAME</h3><p>EDIT PRICE</p></div>
+  <div class="card"><div class="preview" onclick="openModal('a2','9hYzw')"><div class="lazy-embed" data-lazy-key="9hYzw"><div class="loading">Loading... ⭐</div></div></div><h3>Apparel #2 - EDIT NAME</h3><p>EDIT PRICE</p></div>
+  <div class="card"><div class="preview" onclick="openModal('a3','m1oLZ')"><div class="lazy-embed" data-lazy-key="m1oLZ"><div class="loading">Loading... ⭐</div></div></div><h3>Apparel #3 - EDIT NAME</h3><p>EDIT PRICE</p></div>
 </div>
 
-<!-- POPUPS - THESE DON'T LOAD UNTIL YOU CLICK -->
-<div id="m1" class="modal" onclick="if(event.target==this) closeModal('m1')"><div class="modal-box"><div class="modal-top"><span>Wave #1</span><button onclick="closeModal('m1')">✕ Close</button></div><div class="lazy-embed" data-lazy-key="YhwgG" data-modal="1"><div class="loading">Loading... ⭐</div></div></div></div>
-<div id="m2" class="modal" onclick="if(event.target==this) closeModal('m2')"><div class="modal-box"><div class="modal-top"><span>Wave #2</span><button onclick="closeModal('m2')">✕ Close</button></div><div class="lazy-embed" data-lazy-key="IdPwF" data-modal="1"><div class="loading">Loading... ⭐</div></div></div></div>
-<div id="m3" class="modal" onclick="if(event.target==this) closeModal('m3')"><div class="modal-box"><div class="modal-top"><span>Wave #3</span><button onclick="closeModal('m3')">✕ Close</button></div><div class="lazy-embed" data-lazy-key="rW0nV" data-modal="1"><div class="loading">Loading... ⭐</div></div></div></div>
-<div id="m4" class="modal" onclick="if(event.target==this) closeModal('m4')"><div class="modal-box"><div class="modal-top"><span>Toy #4</span><button onclick="closeModal('m4')">✕ Close</button></div><div class="lazy-embed" data-lazy-key="2jiIf" data-modal="1"><div class="loading">Loading... ⭐</div></div></div></div>
-<div id="m5" class="modal" onclick="if(event.target==this) closeModal('m5')"><div class="modal-box"><div class="modal-top"><span>Toy #5</span><button onclick="closeModal('m5')">✕ Close</button></div><div class="lazy-embed" data-lazy-key="ut8wH" data-modal="1"><div class="loading">Loading... ⭐</div></div></div></div>
-<div id="m6" class="modal" onclick="if(event.target==this) closeModal('m6')"><div class="modal-box"><div class="modal-top"><span>Toy #6</span><button onclick="closeModal('m6')">✕ Close</button></div><div class="lazy-embed" data-lazy-key="b4ulk" data-modal="1"><div class="loading">Loading... ⭐</div></div></div></div>
-<div id="m7" class="modal" onclick="if(event.target==this) closeModal('m7')"><div class="modal-box"><div class="modal-top"><span>Toy #7</span><button onclick="closeModal('m7')">✕ Close</button></div><div class="lazy-embed" data-lazy-key="r2Ugm" data-modal="1"><div class="loading">Loading... ⭐</div></div></div></div>
-<div id="m8" class="modal" onclick="if(event.target==this) closeModal('m8')"><div class="modal-box"><div class="modal-top"><span>Toy #8</span><button onclick="closeModal('m8')">✕ Close</button></div><div class="lazy-embed" data-lazy-key="1kz5C" data-modal="1"><div class="loading">Loading... ⭐</div></div></div></div>
-<div id="m9" class="modal" onclick="if(event.target==this) closeModal('m9')"><div class="modal-box"><div class="modal-top"><span>Toy #9</span><button onclick="closeModal('m9')">✕ Close</button></div><div class="lazy-embed" data-lazy-key="qFHSz" data-modal="1"><div class="loading">Loading... ⭐</div></div></div></div>
-<div id="m10" class="modal" onclick="if(event.target==this) closeModal('m10')"><div class="modal-box"><div class="modal-top"><span>Toy #10</span><button onclick="closeModal('m10')">✕ Close</button></div><div class="lazy-embed" data-lazy-key="tbz0I" data-modal="1"><div class="loading">Loading... ⭐</div></div></div></div>
-<div id="m11" class="modal" onclick="if(event.target==this) closeModal('m11')"><div class="modal-box"><div class="modal-top"><span>Toy #11</span><button onclick="closeModal('m11')">✕ Close</button></div><div class="lazy-embed" data-lazy-key="Wa4nj" data-modal="1"><div class="loading">Loading... ⭐</div></div></div></div>
-<div id="m12" class="modal" onclick="if(event.target==this) closeModal('m12')"><div class="modal-box"><div class="modal-top"><span>Toy #12</span><button onclick="closeModal('m12')">✕ Close</button></div><div class="lazy-embed" data-lazy-key="zDFnP" data-modal="1"><div class="loading">Loading... ⭐</div></div></div></div>
-<div id="m13" class="modal" onclick="if(event.target==this) closeModal('m13')"><div class="modal-box"><div class="modal-top"><span>Toy #13</span><button onclick="closeModal('m13')">✕ Close</button></div><div class="lazy-embed" data-lazy-key="xYyRG" data-modal="1"><div class="loading">Loading... ⭐</div></div></div></div>
-<div id="m14" class="modal" onclick="if(event.target==this) closeModal('m14')"><div class="modal-box"><div class="modal-top"><span>Toy #14</span><button onclick="closeModal('m14')">✕ Close</button></div><div class="lazy-embed" data-lazy-key="41GAP" data-modal="1"><div class="loading">Loading... ⭐</div></div></div></div>
-<div id="m15" class="modal" onclick="if(event.target==this) closeModal('m15')"><div class="modal-box"><div class="modal-top"><span>Toy #15</span><button onclick="closeModal('m15')">✕ Close</button></div><div class="lazy-embed" data-lazy-key="p6z4x" data-modal="1"><div class="loading">Loading... ⭐</div></div></div></div>
-<div id="m16" class="modal" onclick="if(event.target==this) closeModal('m16')"><div class="modal-box"><div class="modal-top"><span>Toy #16</span><button onclick="closeModal('m16')">✕ Close</button></div><div class="lazy-embed" data-lazy-key="eDGQb" data-modal="1"><div class="loading">Loading... ⭐</div></div></div></div>
-<div id="m17" class="modal" onclick="if(event.target==this) closeModal('m17')"><div class="modal-box"><div class="modal-top"><span>Toy #17</span><button onclick="closeModal('m17')">✕ Close</button></div><div class="lazy-embed" data-lazy-key="cymq9" data-modal="1"><div class="loading">Loading... ⭐</div></div></div></div>
-<div id="m18" class="modal" onclick="if(event.target==this) closeModal('m18')"><div class="modal-box"><div class="modal-top"><span>Toy #18</span><button onclick="closeModal('m18')">✕ Close</button></div><div class="lazy-embed" data-lazy-key="ZVpv2" data-modal="1"><div class="loading">Loading... ⭐</div></div></div></div>
-<div id="a1" class="modal" onclick="if(event.target==this) closeModal('a1')"><div class="modal-box"><div class="modal-top"><span>Apparel #1</span><button onclick="closeModal('a1')">✕ Close</button></div><div class="lazy-embed" data-lazy-key="0sK71" data-modal="1"><div class="loading">Loading... ⭐</div></div></div></div>
-<div id="a2" class="modal" onclick="if(event.target==this) closeModal('a2')"><div class="modal-box"><div class="modal-top"><span>Apparel #2</span><button onclick="closeModal('a2')">✕ Close</button></div><div class="lazy-embed" data-lazy-key="9hYzw" data-modal="1"><div class="loading">Loading... ⭐</div></div></div></div>
-<div id="a3" class="modal" onclick="if(event.target==this) closeModal('a3')"><div class="modal-box"><div class="modal-top"><span>Apparel #3</span><button onclick="closeModal('a3')">✕ Close</button></div><div class="lazy-embed" data-lazy-key="m1oLZ" data-modal="1"><div class="loading">Loading... ⭐</div></div></div></div>
+<!-- POPUPS - EMPTY AT START, FILLED WITH 1 IFRAME ON CLICK -->
+<div id="m1" class="modal" onclick="if(event.target==this) closeModal('m1')"><div class="modal-box"><div class="modal-top"><span>Wave #1</span><button onclick="closeModal('m1')">✕ Close</button></div><div class="modal-content"></div></div></div>
+<div id="m2" class="modal" onclick="if(event.target==this) closeModal('m2')"><div class="modal-box"><div class="modal-top"><span>Wave #2</span><button onclick="closeModal('m2')">✕ Close</button></div><div class="modal-content"></div></div></div>
+<div id="m3" class="modal" onclick="if(event.target==this) closeModal('m3')"><div class="modal-box"><div class="modal-top"><span>Wave #3</span><button onclick="closeModal('m3')">✕ Close</button></div><div class="modal-content"></div></div></div>
+<div id="m4" class="modal" onclick="if(event.target==this) closeModal('m4')"><div class="modal-box"><div class="modal-top"><span>Toy #4</span><button onclick="closeModal('m4')">✕ Close</button></div><div class="modal-content"></div></div></div>
+<div id="m5" class="modal" onclick="if(event.target==this) closeModal('m5')"><div class="modal-box"><div class="modal-top"><span>Toy #5</span><button onclick="closeModal('m5')">✕ Close</button></div><div class="modal-content"></div></div></div>
+<div id="m6" class="modal" onclick="if(event.target==this) closeModal('m6')"><div class="modal-box"><div class="modal-top"><span>Toy #6</span><button onclick="closeModal('m6')">✕ Close</button></div><div class="modal-content"></div></div></div>
+<div id="m7" class="modal" onclick="if(event.target==this) closeModal('m7')"><div class="modal-box"><div class="modal-top"><span>Toy #7</span><button onclick="closeModal('m7')">✕ Close</button></div><div class="modal-content"></div></div></div>
+<div id="m8" class="modal" onclick="if(event.target==this) closeModal('m8')"><div class="modal-box"><div class="modal-top"><span>Toy #8</span><button onclick="closeModal('m8')">✕ Close</button></div><div class="modal-content"></div></div></div>
+<div id="m9" class="modal" onclick="if(event.target==this) closeModal('m9')"><div class="modal-box"><div class="modal-top"><span>Toy #9</span><button onclick="closeModal('m9')">✕ Close</button></div><div class="modal-content"></div></div></div>
+<div id="m10" class="modal" onclick="if(event.target==this) closeModal('m10')"><div class="modal-box"><div class="modal-top"><span>Toy #10</span><button onclick="closeModal('m10')">✕ Close</button></div><div class="modal-content"></div></div></div>
+<div id="m11" class="modal" onclick="if(event.target==this) closeModal('m11')"><div class="modal-box"><div class="modal-top"><span>Toy #11</span><button onclick="closeModal('m11')">✕ Close</button></div><div class="modal-content"></div></div></div>
+<div id="m12" class="modal" onclick="if(event.target==this) closeModal('m12')"><div class="modal-box"><div class="modal-top"><span>Toy #12</span><button onclick="closeModal('m12')">✕ Close</button></div><div class="modal-content"></div></div></div>
+<div id="m13" class="modal" onclick="if(event.target==this) closeModal('m13')"><div class="modal-box"><div class="modal-top"><span>Toy #13</span><button onclick="closeModal('m13')">✕ Close</button></div><div class="modal-content"></div></div></div>
+<div id="m14" class="modal" onclick="if(event.target==this) closeModal('m14')"><div class="modal-box"><div class="modal-top"><span>Toy #14</span><button onclick="closeModal('m14')">✕ Close</button></div><div class="modal-content"></div></div></div>
+<div id="m15" class="modal" onclick="if(event.target==this) closeModal('m15')"><div class="modal-box"><div class="modal-top"><span>Toy #15</span><button onclick="closeModal('m15')">✕ Close</button></div><div class="modal-content"></div></div></div>
+<div id="m16" class="modal" onclick="if(event.target==this) closeModal('m16')"><div class="modal-box"><div class="modal-top"><span>Toy #16</span><button onclick="closeModal('m16')">✕ Close</button></div><div class="modal-content"></div></div></div>
+<div id="m17" class="modal" onclick="if(event.target==this) closeModal('m17')"><div class="modal-box"><div class="modal-top"><span>Toy #17</span><button onclick="closeModal('m17')">✕ Close</button></div><div class="modal-content"></div></div></div>
+<div id="m18" class="modal" onclick="if(event.target==this) closeModal('m18')"><div class="modal-box"><div class="modal-top"><span>Toy #18</span><button onclick="closeModal('m18')">✕ Close</button></div><div class="modal-content"></div></div></div>
+<div id="a1" class="modal" onclick="if(event.target==this) closeModal('a1')"><div class="modal-box"><div class="modal-top"><span>Apparel #1</span><button onclick="closeModal('a1')">✕ Close</button></div><div class="modal-content"></div></div></div>
+<div id="a2" class="modal" onclick="if(event.target==this) closeModal('a2')"><div class="modal-box"><div class="modal-top"><span>Apparel #2</span><button onclick="closeModal('a2')">✕ Close</button></div><div class="modal-content"></div></div></div>
+<div id="a3" class="modal" onclick="if(event.target==this) closeModal('a3')"><div class="modal-box"><div class="modal-top"><span>Apparel #3</span><button onclick="closeModal('a3')">✕ Close</button></div><div class="modal-content"></div></div></div>
 
 <script>
   function showTab(tab){
@@ -124,42 +125,39 @@
       document.getElementById('btn-apparel').classList.add('active');
     }
     window.scrollTo({top: document.querySelector('.tabs').offsetTop - 10, behavior:'smooth'});
-    // After switching tab, check which thumbs are now visible and load them
     setTimeout(checkLazy, 100);
   }
 
-  // LAZY LOAD - only turn a placeholder into a real Payhip embed when needed
+  // THUMBS - lazy load on scroll
   function loadEmbed(el){
     if(!el || el.dataset.loaded) return;
     el.dataset.loaded = '1';
-    var key = el.dataset.lazyKey;
     var div = document.createElement('div');
     div.className = 'payhip-embed-page';
-    div.setAttribute('data-key', key);
+    div.setAttribute('data-key', el.dataset.lazyKey);
     el.innerHTML = '';
     el.appendChild(div);
-    // Tell Payhip to render this new one
-    if(window.Payhip && window.Payhip.Embed) { try{ window.Payhip.Embed.init(); }catch(e){} }
-    // Fallback: if Payhip script already ran, re-run it by re-adding script
-    else { var s=document.createElement('script'); s.src='https://payhip.com/embed-page.js?v=24u68985'; document.body.appendChild(s); }
+    var s=document.createElement('script'); s.src='https://payhip.com/embed-page.js?v=24u68985'; document.body.appendChild(s);
   }
-
-  // Thumbnails: load when scrolled into view
   var observer = new IntersectionObserver(function(entries){
     entries.forEach(function(e){ if(e.isIntersecting) loadEmbed(e.target); });
   }, {rootMargin:'200px'});
   function checkLazy(){
-    document.querySelectorAll('.lazy-embed:not([data-modal])').forEach(function(el){
+    document.querySelectorAll('.lazy-embed').forEach(function(el){
       if(!el.dataset.observed){ el.dataset.observed='1'; observer.observe(el); }
     });
   }
   checkLazy();
 
-  function openModal(id){
-    // Load the popup embed ONLY on first click - this is what fixes the slowness
+  // POPUP - THIS IS THE FIX: load 1 Payhip page in iframe, don't use Payhip JS
+  function openModal(id, key){
     var modal = document.getElementById(id);
-    var lazy = modal.querySelector('.lazy-embed');
-    loadEmbed(lazy);
+    var content = modal.querySelector('.modal-content');
+    // Only load once, or reload if it's a different key
+    if(!content.dataset.loadedKey || content.dataset.loadedKey !== key){
+      content.dataset.loadedKey = key;
+      content.innerHTML = '<iframe class="modal-frame" src="https://payhip.com/b/' + key + '"></iframe>';
+    }
     modal.classList.add('open');
     document.body.style.overflow='hidden';
   }
@@ -167,4 +165,4 @@
 </script>
 <script type="text/javascript" src="https://payhip.com/embed-page.js?v=24u68985"></script>
 </body>
-                                                                     </html>
+                                                                              </html>
