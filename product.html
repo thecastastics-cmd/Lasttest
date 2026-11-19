@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Castastics Toys - Product</title>
+  <meta name="description" content="Castastics Toys by David Artsy">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    body{margin:0;background:#2b4bff;font-family:Arial;text-align:center;color:white}
+    .topbar{background:#4a0000;padding:12px;font-size:14px}
+    .topbar a{color:#ffea00;text-decoration:none;font-weight:bold}
+    .box{max-width:650px;margin:15px auto;background:white;border-radius:12px;overflow:hidden}
+    h2{margin:15px 0 0}
+  </style>
+</head>
+<body>
+<div class="topbar"><a href="index.html">← Back to Castastics Toys</a> ⭐ Castastics Toys ⭐</div>
+<h2 id="title">Loading... ⭐</h2>
+<div class="box">
+  <script>
+    var params = new URLSearchParams(window.location.search);
+    var key = params.get('k') || 'YhwgG';
+    var title = params.get('t') || 'Castastics Toys';
+    document.getElementById('title').textContent = decodeURIComponent(title);
+    document.write('<div class="payhip-embed-page" data-key="' + key + '"></div>');
+  </script>
+</div>
+<script type="text/javascript" src="https://payhip.com/embed-page.js?v=24u68985"></script>
+</body>
+</html>
