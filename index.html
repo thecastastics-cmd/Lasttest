@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <title>Castastics Toys - Official Plushies & Action Figures</title>
-  <meta name="description" content="Shop official Castastics Toys by David Artsy. Handmade plushies, action figures, Wave #1, #2, #3, Villains, Heroes and more.">
+  <meta name="description" content="Shop official Castastics Toys by David Artsy.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <style>
@@ -11,17 +11,19 @@
     .socials{display:flex;justify-content:center;gap:10px;margin:10px 0;flex-wrap:wrap}
     .socials a{background:white;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:19px;text-decoration:none}
     .video-wrap{max-width:900px;margin:0 auto;padding:10px} .video-wrap h2{color:#ffea00;text-align:left;font-size:18px}
-    .video{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px} .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+    .video-thumb{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;background:#000;cursor:pointer}
+    .video-thumb img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover}
+    .video-thumb:after{content:"▶ PLAY";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#ffea00;color:#000;padding:14px 22px;border-radius:30px;font-weight:bold}
     .tabs{margin:20px 0 10px;display:flex;justify-content:center;gap:25px}
     .tabs button{background:none;border:none;color:white;font-size:15px;cursor:pointer;padding-bottom:4px;opacity:.6}
     .tabs button.active{color:#ffea00;border-bottom:3px solid #ffea00;opacity:1;font-weight:bold}
     .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:12px;max-width:1000px;margin:0 auto}
     @media(min-width:700px){.grid{grid-template-columns:repeat(3,1fr)}}
     .card{background:white;border-radius:10px;overflow:hidden;color:black;text-align:left}
-    .card h3{color:#000;font-size:14px;margin:0;padding:10px 10px 0}
+    .card h3{font-size:14px;margin:0;padding:10px 10px 0}
     .card p{margin:4px 10px 10px;font-weight:bold}
-    .preview{height:260px;overflow:hidden;position:relative;cursor:pointer}
-    .preview .payhip-embed-page{pointer-events:none}
+    .preview{height:260px;overflow:hidden;position:relative;cursor:pointer;background:#eee}
+    .preview img{width:100%;height:100%;object-fit:cover;display:block}
     .preview:after{content:"Tap to View →";position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent, rgba(0,0,0,.8));color:white;padding:25px 10px 10px;font-weight:bold;text-align:center}
     .pages{display:flex;justify-content:center;gap:8px;margin:10px 0 20px;flex-wrap:wrap}
     .pages button{background:white;border:none;padding:10px 16px;border-radius:8px;font-weight:bold;cursor:pointer}
@@ -50,7 +52,9 @@
 
 <div class="video-wrap">
   <h2>The Castastics Movie Official Trailer</h2>
-  <div class="video"><iframe src="https://www.youtube.com/embed/895LbFmZZSQ" allowfullscreen></iframe></div>
+  <div class="video-thumb" onclick="this.innerHTML='<iframe src=\'https://www.youtube.com/embed/895LbFmZZSQ?autoplay=1\' style=\'position:absolute;top:0;left:0;width:100%;height:100%;border:0\' allowfullscreen></iframe>'">
+    <img src="https://i.ytimg.com/vi/895LbFmZZSQ/hqdefault.jpg" alt="Trailer">
+  </div>
 </div>
 
 <div class="tabs">
@@ -58,86 +62,59 @@
   <button id="btn-apparel" onclick="showTab('apparel')">APPARELS (3)</button>
 </div>
 
-<!-- GRID IS FILLED BY JS - ONLY 6 EMBEDS AT A TIME, SO IT STAYS FAST -->
 <div id="tab-toys" class="grid"></div>
 <div id="tab-apparel" class="grid" style="display:none"></div>
 <div id="pager" class="pages"></div>
 
-<!-- ONE POPUP - IT COPIES THE THUMB YOU ALREADY LOADED, SO NO SECOND LOAD -->
 <div id="popup" class="modal" onclick="if(event.target==this) closeModal()"><div class="modal-box"><div class="modal-top"><span id="popup-title">Product</span><button onclick="closeModal()">✕ Close</button></div><div id="popup-content"></div></div></div>
 
 <script>
   var PRODUCTS = {
     toys: [
-      {key:'YhwgG', name:'Castastics Toys Wave #1', price:'$252.00'},
-      {key:'IdPwF', name:'Castastics Toys Wave #2', price:'$750.00'},
-      {key:'rW0nV', name:'Castastics Toys Wave #3', price:'$589.99'},
-      {key:'2jiIf', name:'Toy #4', price:'Tap to see price'},
-      {key:'ut8wH', name:'Toy #5', price:'Tap to see price'},
-      {key:'b4ulk', name:'Toy #6', price:'Tap to see price'},
-      {key:'r2Ugm', name:'Toy #7', price:'Tap to see price'},
-      {key:'1kz5C', name:'Toy #8', price:'Tap to see price'},
-      {key:'qFHSz', name:'Toy #9', price:'Tap to see price'},
-      {key:'tbz0I', name:'Toy #10', price:'Tap to see price'},
-      {key:'Wa4nj', name:'Toy #11', price:'Tap to see price'},
-      {key:'zDFnP', name:'Toy #12', price:'Tap to see price'},
-      {key:'xYyRG', name:'Toy #13', price:'Tap to see price'},
-      {key:'41GAP', name:'Toy #14', price:'Tap to see price'},
-      {key:'p6z4x', name:'Toy #15', price:'Tap to see price'},
-      {key:'eDGQb', name:'Toy #16', price:'Tap to see price'},
-      {key:'cymq9', name:'Toy #17', price:'Tap to see price'},
-      {key:'ZVpv2', name:'Toy #18', price:'Tap to see price'}
+      {key:'YhwgG', img:'wave1.jpg', name:'Castastics Toys Wave #1', price:'$252.00'},
+      {key:'IdPwF', img:'wave2.jpg', name:'Castastics Toys Wave #2', price:'$750.00'},
+      {key:'rW0nV', img:'wave3.jpg', name:'Castastics Toys Wave #3', price:'$589.99'},
+      {key:'2jiIf', img:'toy4.jpg', name:'Toy #4', price:'Tap to see price'},
+      {key:'ut8wH', img:'toy5.jpg', name:'Toy #5', price:'Tap to see price'},
+      {key:'b4ulk', img:'toy6.jpg', name:'Toy #6', price:'Tap to see price'},
+      {key:'r2Ugm', img:'toy7.jpg', name:'Toy #7', price:'Tap to see price'},
+      {key:'1kz5C', img:'toy8.jpg', name:'Toy #8', price:'Tap to see price'},
+      {key:'qFHSz', img:'toy9.jpg', name:'Toy #9', price:'Tap to see price'},
+      {key:'tbz0I', img:'toy10.jpg', name:'Toy #10', price:'Tap to see price'},
+      {key:'Wa4nj', img:'toy11.jpg', name:'Toy #11', price:'Tap to see price'},
+      {key:'zDFnP', img:'toy12.jpg', name:'Toy #12', price:'Tap to see price'},
+      {key:'xYyRG', img:'toy13.jpg', name:'Toy #13', price:'Tap to see price'},
+      {key:'41GAP', img:'toy14.jpg', name:'Toy #14', price:'Tap to see price'},
+      {key:'p6z4x', img:'toy15.jpg', name:'Toy #15', price:'Tap to see price'},
+      {key:'eDGQb', img:'toy16.jpg', name:'Toy #16', price:'Tap to see price'},
+      {key:'cymq9', img:'toy17.jpg', name:'Toy #17', price:'Tap to see price'},
+      {key:'ZVpv2', img:'toy18.jpg', name:'Toy #18', price:'Tap to see price'}
     ],
     apparel: [
-      {key:'0sK71', name:'Apparel #1', price:'Tap to see price'},
-      {key:'9hYzw', name:'Apparel #2', price:'Tap to see price'},
-      {key:'m1oLZ', name:'Apparel #3', price:'Tap to see price'}
+      {key:'0sK71', img:'apparel1.jpg', name:'Apparel #1', price:'Tap to see price'},
+      {key:'9hYzw', img:'apparel2.jpg', name:'Apparel #2', price:'Tap to see price'},
+      {key:'m1oLZ', img:'apparel3.jpg', name:'Apparel #3', price:'Tap to see price'}
     ]
   };
-  var currentTab = 'toys';
-  var currentPage = 1;
-  var PER_PAGE = 6;
-
-  function reloadPayhip(){
-    var s = document.createElement('script');
-    s.src = 'https://payhip.com/embed-page.js?v=24u68985';
-    document.body.appendChild(s);
-  }
-
+  var currentTab='toys', currentPage=1, PER_PAGE=6;
   function render(){
-    var list = PRODUCTS[currentTab];
-    var start = (currentPage-1)*PER_PAGE;
-    var pageItems = list.slice(start, start+PER_PAGE);
-    var grid = document.getElementById(currentTab==='toys' ? 'tab-toys' : 'tab-apparel');
-    grid.innerHTML = '';
-    pageItems.forEach(function(p, i){
-      var card = document.createElement('div');
-      card.className = 'card';
-      card.innerHTML = '<div class="preview" data-index="'+(start+i)+'"><div class="payhip-embed-page" data-key="'+p.key+'"></div></div><h3>'+p.name+'</h3><p>'+p.price+'</p>';
-      card.querySelector('.preview').onclick = function(){ openModal(start+i); };
+    var list=PRODUCTS[currentTab];
+    var start=(currentPage-1)*PER_PAGE;
+    var grid=document.getElementById(currentTab==='toys'?'tab-toys':'tab-apparel');
+    grid.innerHTML='';
+    list.slice(start,start+PER_PAGE).forEach(function(p,i){
+      var card=document.createElement('div');
+      card.className='card';
+      card.innerHTML='<div class="preview"><img src="'+p.img+'" alt="'+p.name+'" loading="lazy" onerror="this.style.display=\'none\'"></div><h3>'+p.name+'</h3><p>'+p.price+'</p>';
+      card.querySelector('.preview').onclick=function(){openModal(start+i);};
       grid.appendChild(card);
     });
-    // pager buttons
-    var totalPages = Math.ceil(list.length / PER_PAGE);
-    var pager = document.getElementById('pager');
-    pager.innerHTML = '';
-    if(totalPages > 1){
-      for(var pg=1; pg<=totalPages; pg++){
-        (function(pg){
-          var b = document.createElement('button');
-          b.textContent = pg;
-          if(pg===currentPage) b.className='active';
-          b.onclick = function(){ currentPage=pg; render(); window.scrollTo({top:document.querySelector('.tabs').offsetTop-10, behavior:'smooth'}); };
-          pager.appendChild(b);
-        })(pg);
-      }
-    }
-    reloadPayhip();
+    var totalPages=Math.ceil(list.length/PER_PAGE);
+    var pager=document.getElementById('pager'); pager.innerHTML='';
+    if(totalPages>1){ for(var pg=1;pg<=totalPages;pg++){ (function(pg){ var b=document.createElement('button'); b.textContent=pg; if(pg===currentPage) b.className='active'; b.onclick=function(){currentPage=pg;render(); window.scrollTo({top:document.querySelector('.tabs').offsetTop-10,behavior:'smooth'});}; pager.appendChild(b); })(pg); } }
   }
-
   function showTab(tab){
-    currentTab = tab;
-    currentPage = 1;
+    currentTab=tab; currentPage=1;
     document.getElementById('tab-toys').style.display='none';
     document.getElementById('tab-apparel').style.display='none';
     document.getElementById('btn-toys').classList.remove('active');
@@ -145,31 +122,16 @@
     if(tab==='toys'){document.getElementById('tab-toys').style.display='grid';document.getElementById('btn-toys').classList.add('active');}
     else{document.getElementById('tab-apparel').style.display='grid';document.getElementById('btn-apparel').classList.add('active');}
     render();
-    window.scrollTo({top:document.querySelector('.tabs').offsetTop-10,behavior:'smooth'});
   }
-
-  // POPUP = COPY the thumb that already loaded. No new Payhip load, so instant, no branding, no "You Might Also Like"
   function openModal(index){
-    var p = PRODUCTS[currentTab][index];
-    document.getElementById('popup-title').textContent = p.name;
-    var thumbs = document.querySelectorAll('#tab-'+currentTab+' .preview');
-    // find the thumb for this product on this page
-    var thumb = null;
-    thumbs.forEach(function(t){ if(parseInt(t.dataset.index)===index) thumb=t; });
-    var content = document.getElementById('popup-content');
-    if(thumb){
-      content.innerHTML = thumb.innerHTML;
-    } else {
-      content.innerHTML = '<div class="payhip-embed-page" data-key="'+p.key+'"></div>';
-      reloadPayhip();
-    }
-    document.getElementById('popup').classList.add('open');
-    document.body.style.overflow='hidden';
+    var p=PRODUCTS[currentTab][index];
+    document.getElementById('popup-title').textContent=p.name;
+    document.getElementById('popup-content').innerHTML='<div class="payhip-embed-page" data-key="'+p.key+'"></div>';
+    var s=document.createElement('script'); s.src='https://payhip.com/embed-page.js?v=24u68985'; document.body.appendChild(s);
+    document.getElementById('popup').classList.add('open'); document.body.style.overflow='hidden';
   }
   function closeModal(){ document.getElementById('popup').classList.remove('open'); document.body.style.overflow=''; }
-
   render();
 </script>
-<script type="text/javascript" src="https://payhip.com/embed-page.js?v=24u68985"></script>
 </body>
 </html>
