@@ -30,6 +30,15 @@
 .header-title{margin:5px 0 0;font-size:28px}
 .header-sub{margin:4px 0 10px;opacity:.9}
     .socials a img{width:22px;height:22px;display:block}
+    .about-wrap{background:#1e33cc;padding:22px 16px;text-align:left;max-width:1000px;margin:20px auto 0;border-radius:12px}
+.about-wrap h2{margin:0 0 12px;text-align:left;color:white;font-size:22px}
+.about-flex{display:flex;gap:16px;align-items:center}
+.david-pfp{width:110px;height:110px;min-width:110px;object-fit:cover;border-radius:50%;border:3px solid white;background:white}
+.about-flex p{margin:0;color:white;font-size:15px;line-height:1.6}
+.footer{background:#c00000;padding:22px 12px 18px;text-align:center;margin-top:20px}
+.footer img{width:70px;height:70px;object-fit:contain;border-radius:50%;background:white;padding:4px}
+.footer p{margin:10px 0 0;color:white;font-size:14px;font-weight:bold}
+@media(max-width:600px){.about-flex{flex-direction:column;text-align:center}.about-wrap h2{text-align:center}}
   </style>
 </head>
 <body>
@@ -97,7 +106,7 @@
 </div>
 
 <div class="socials">
- <a href="https://castastics.web.app/" target="_blank"><img src="https://cdn.simpleicons.org/globe/000000" alt="Website"></a>
+  <a href="https://castastics.web.app/" target="_blank"><img src="https://cdn.simpleicons.org/googlesearchconsole/000000" alt="Website"></a>
   <a href="https://m.twitch.tv/davidartsylive/home" target="_blank"><img src="https://cdn.simpleicons.org/twitch/9146FF" alt="Twitch"></a>
   <a href="https://www.instagram.com/itsdavidartsy" target="_blank"><img src="https://cdn.simpleicons.org/instagram/E4405F" alt="Instagram"></a>
   <a href="https://www.facebook.com/thedavidartsy/" target="_blank"><img src="https://cdn.simpleicons.org/facebook/1877F2" alt="Facebook"></a>
@@ -130,5 +139,19 @@
     window.scrollTo({top:document.querySelector('.tabs').offsetTop-10,behavior:'smooth'});
   }
 </script>
+  <!-- BOTTOM WRAPPER - ABOUT DAVID -->
+<div class="about-wrap">
+  <h2>David Artsy</h2>
+  <div class="about-flex">
+    <img src="Davidpfp.jpg" class="david-pfp" alt="David Artsy">
+    <p>David James Jeffers (David Artsy) has been a good drawer, cartoonist &amp; love dogs. He can draw, write stories and songs fast, left handed. Currently live in Trinidad, Port-Of-Spain with his family. Born March 23rd, 2004.</p>
+  </div>
+</div>
+
+<!-- FOOTER - RED BG, LOGO + COPYRIGHT -->
+<div class="footer">
+  <img src="logo.png" alt="Castastics Logo">
+  <p>Castastics © All Rights Reserved 2026</p>
+</div>
 </body>
     </html>
