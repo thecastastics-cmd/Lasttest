@@ -125,9 +125,11 @@
   function openModal(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden'}
   function closeModal(id){document.getElementById(id).classList.remove('open');document.body.style.overflow=''}
 </script>
-  <script>
-// REPLACE THE OLD IFRAME BLOCK WITH THIS ONE - SAME SPOT, ABOVE PAYHIP SCRIPT
-// 1. Save popup keys, empty popups so they don't load on refresh
+
+<script>
+// FINAL - REPLACES YOUR CURRENT BOTTOM BLOCK - SAME SPOT, ABOVE PAYHIP SCRIPT
+
+// 1. POPUPS: save keys, empty them so 0 popups load on refresh
 document.querySelectorAll('.modal').forEach(function(modal){
   var embed = modal.querySelector('.payhip-embed-page');
   if(embed){
@@ -135,15 +137,51 @@ document.querySelectorAll('.modal').forEach(function(modal){
     embed.remove();
   }
   if(!modal.querySelector('.modal-content')){
-    var box = modal.querySelector('.modal-box');
     var div = document.createElement('div');
     div.className = 'modal-content';
     div.innerHTML = '<p style="padding:20px;color:#888">Loading... ⭐</p>';
-    box.appendChild(div);
+    modal.querySelector('.modal-box').appendChild(div);
   }
 });
 
-// 2. On click, inject the CLEAN Payhip embed (not the full page), then re-run Payhip
+// 2. THUMBS: save keys, empty them, load only first 6 + rest on scroll
+var thumbHolders = [];
+document.querySelectorAll('.preview .payhip-embed-page').forEach(function(embed){
+  var holder = embed.parentElement;
+  holder.dataset.key = embed.getAttribute('data-key');
+  holder.innerHTML = '<div style="height:260px;display:flex;align-items:center;justify-content:center;color:#888;background:#eee">Loading... ⭐</div>';
+  thumbHolders.push(holder);
+});
+function loadThumb(holder){
+  if(!holder || holder.dataset.loaded) return;
+  holder.dataset.loaded = '1';
+  holder.innerHTML = '';
+  var div = document.createElement('div');
+  div.className = 'payhip-embed-page';
+  div.setAttribute('data-key', holder.dataset.key);
+  holder.appendChild(div);
+  var s = document.createElement('script');
+  s.src = 'https://payhip.com/embed-page.js?v=24u68985';
+  document.body.appendChild(s);
+}
+thumbHolders.slice(0,6).forEach(loadThumb);
+var thumbObs = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting) loadThumb(e.target); });
+}, {rootMargin:'300px'});
+thumbHolders.slice(6).forEach(function(h){ thumbObs.observe(h); });
+
+// 3. FIX showTab - when you switch to Apparel, load those thumbs too
+var oldShowTab = window.showTab;
+window.showTab = function(tab){
+  oldShowTab(tab);
+  setTimeout(function(){
+    thumbHolders.forEach(function(h){
+      if(h.offsetParent !== null) loadThumb(h);
+    });
+  }, 150);
+};
+
+// 4. POPUP: on click, load just that ONE clean embed
 window.openModal = function(id){
   var modal = document.getElementById(id);
   var content = modal.querySelector('.modal-content');
@@ -155,7 +193,6 @@ window.openModal = function(id){
     div.className = 'payhip-embed-page';
     div.setAttribute('data-key', key);
     content.appendChild(div);
-    // Force Payhip to scan the page again for this new embed
     var s = document.createElement('script');
     s.src = 'https://payhip.com/embed-page.js?v=24u68985';
     document.body.appendChild(s);
@@ -167,7 +204,8 @@ window.closeModal = function(id){
   document.getElementById(id).classList.remove('open');
   document.body.style.overflow = '';
 };
-  </script>
+</script>
+  
 <script type="text/javascript" src="https://payhip.com/embed-page.js?v=24u68985"></script>
 </body>
                                                                                                                            </html>
